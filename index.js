@@ -61,7 +61,7 @@ document.body.appendChild(p)
 document.body.appendChild(pb)
 
 
-
+select.setAttribute("id","menu")
 var pButton = document.createElement("input")
 pButton.setAttribute("type", "button")
 document.body.appendChild(pButton)
@@ -75,7 +75,15 @@ pButton.setAttribute("onclick","placeOrder()")
 function placeOrder(){
 //how to read value in text box in html document.get element by id
 var quantity = document.getElementById("b").value
-alert(quantity)
+
+var itemName = document.getElementById('menu').value
+for (i = 0; i < restaurantDetail.MenuItems.length; i++){
+if (restaurantDetail.MenuItems[i].itemName == itemName){
+    var price = restaurantDetail.MenuItems[i].itemPrice
+}
+}
+alert("$" + (price * quantity))
+
 
 
 }
